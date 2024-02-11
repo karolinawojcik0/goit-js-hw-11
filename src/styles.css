@@ -1,0 +1,60 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 10px;
+  }
+  
+  .search-form {
+    display: flex;
+    margin-bottom: 20px;
+  }
+  
+  .search-form input {
+    flex: 1;
+    padding: 8px;
+  }
+  
+  .load-more {
+    display: none;
+    margin-top: 20px;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .photo-card {
+    width: calc(33.33% - 10px);
+    box-sizing: border-box;
+    margin-bottom: 10px;
+  }
+  
+  .photo-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .info {
+    background-color: #f0f0f0;
+    padding: 8px;
+    border-radius: 5px;
+  }
+  
+  .info-item {
+    margin: 0;
+    padding: 5px 0;
+  }
+  
