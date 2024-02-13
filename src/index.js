@@ -34,6 +34,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 return;
             }
 
+            if (page === 1) {
+                Notiflix.Notify.success(`Hooray! We found ${data.totalHits} images.`);
+            }
+
             data.hits.forEach(image => {
                 const photoCard = document.createElement('div');
                 photoCard.className = 'photo-card';
@@ -50,10 +54,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 const description = document.createElement('div');
                 description.className = 'photo-description';
                 description.innerHTML = `
-                    <p>Likes: ${image.likes}</p>
-                    <p>Views: ${image.views}</p>
-                    <p>Comments: ${image.comments}</p>
-                    <p>Downloads: ${image.downloads}</p>
+                    <p>Lubi: ${image.likes}</p>
+                    <p>Odsłony: ${image.views}</p>
+                    <p>Komentarze: ${image.comments}</p>
+                    <p>Pobrania: ${image.downloads}</p>
                 `;
 
                 photoCard.appendChild(link);
@@ -64,8 +68,8 @@ document.addEventListener('DOMContentLoaded', function () {
             lightbox.refresh();
             isLoading = false;
         } catch (error) {
-            console.error('Error fetching images:', error);
-            Notiflix.Notify.failure('Error fetching images. Please try again.');
+            console.error('Błąd podczas pobierania obrazków:', error);
+            Notiflix.Notify.failure('We are sorry, but you\'ve reached the end of search results.');
             isLoading = false;
         }
     }
@@ -81,5 +85,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
+
 
 
