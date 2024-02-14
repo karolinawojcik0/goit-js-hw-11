@@ -13,10 +13,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
     searchForm.addEventListener('submit', function (event) {
         event.preventDefault();
-        currentQuery = event.target.elements.searchQuery.value;
-        currentPage = 1;
-        gallery.innerHTML = '';
-        fetchImages(currentQuery, currentPage);
+        currentQuery = event.target.elements.searchQuery.value.trim(); // Usuń białe znaki z początku i końca
+        if (currentQuery !== '') {
+            currentPage = 1;
+            gallery.innerHTML = '';
+            fetchImages(currentQuery, currentPage);
+        }
+    });
+
+    searchForm.addEventListener('keydown', function (event) {
+        if (event.key === ' ' && document.activeElement === event.target) {
+            event.preventDefault();
+        }
     });
 
     async function fetchImages(query, page) {
@@ -85,6 +93,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
 
 
 
