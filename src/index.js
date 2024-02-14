@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     searchForm.addEventListener('submit', function (event) {
         event.preventDefault();
-        currentQuery = event.target.elements.searchQuery.value.trim(); // Usuń białe znaki z początku i końca
+        currentQuery = event.target.elements.searchQuery.value.trim();
         if (currentQuery !== '') {
             currentPage = 1;
             gallery.innerHTML = '';
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 Notiflix.Notify.success(`Hooray! We found ${data.totalHits} images.`);
             }
 
-            // Tworzymy fragment DOM, aby uniknąć wielokrotnych odświeżeń interfejsu
+            //fragment DOM, aby uniknąć wielokrotnych odświeżeń interfejsu
             const fragment = document.createDocumentFragment();
 
             data.hits.forEach(image => {
