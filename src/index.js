@@ -46,6 +46,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 Notiflix.Notify.success(`Hooray! We found ${data.totalHits} images.`);
             }
 
+            // Tworzymy fragment DOM, aby uniknąć wielokrotnych odświeżeń interfejsu
+            const fragment = document.createDocumentFragment();
+
             data.hits.forEach(image => {
                 const photoCard = document.createElement('div');
                 photoCard.className = 'photo-card';
@@ -70,8 +73,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 photoCard.appendChild(link);
                 photoCard.appendChild(description);
-                gallery.appendChild(photoCard);
+                
+                // Dodajemy element do fragmentu
+                fragment.appendChild(photoCard);
             });
+
+            // Dodajemy cały fragment do kontenera
+            gallery.appendChild(fragment);
 
             lightbox.refresh();
             isLoading = false;
@@ -93,6 +101,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
 
 
 
